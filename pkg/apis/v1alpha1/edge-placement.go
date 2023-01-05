@@ -25,8 +25,8 @@ import (
 // +genclient:nonNamespaced
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
-// EdgePlacement binds a collection of Namespaces and non-namespaced objects
-// to a collection of Locations.
+// EdgePlacement binds a collection of (a) Namespaces and non-namespaced objects
+// to (b) a collection of Locations.
 // An EdgePlacement object appears in the center and directs all the syncable
 // objects in the selected Namespaces and all the selected non-namespaced objects
 // to propagate to _all_ of the selected Locations
@@ -49,7 +49,7 @@ type EdgePlacement struct {
 	// +optional
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	// `spec` describes a desired binding between Namespaces and Locations.
+	// `spec` describes a desired binding between workload and Locations.
 	// Unlike a TMC Placement, there is an inherent multiplicity and dynamicity
 	// in the set of Locations that will be synced to and this field
 	// never shifts into immutability.
@@ -57,13 +57,13 @@ type EdgePlacement struct {
 	Spec EdgePlacementSpec `json:"spec,omitempty"`
 
 	// `status` describes the status of the process of binding
-	// Namespaces to Locations.
+	// workload to Locations.
 	// +optional
 	Status EdgePlacementStatus `json:"status,omitempty"`
 }
 
-// EdgePlacementSpec holds a desired binding between Namespaces and non-namespaced objects
-// and Locations.
+// EdgePlacementSpec holds a desired binding between (a) Namespaces and non-namespaced objects
+// and (b) Locations.
 type EdgePlacementSpec struct {
 	// `locationWorkspaceSelector` identifies the workspaces in which to look for Location
 	// objects, in terms of labels on the Workspace objects.
