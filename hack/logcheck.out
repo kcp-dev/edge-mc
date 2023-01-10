@@ -1,1 +1,3 @@
+/pkg/reconciler/scheduling/placement/controller.go:209:3: Key positional arguments "Namespace" are expected to be alphanumeric and start with either one lowercase or two uppercase letters. Please refer to https://github.com/kubernetes/community/blob/master/contributors/devel/sig-instrumentation/migration-to-structured-logging.md#name-arguments.
+/pkg/reconciler/scheduling/placement/controller.go:237:3: Key positional arguments "Location" are expected to be alphanumeric and start with either one lowercase or two uppercase letters. Please refer to https://github.com/kubernetes/community/blob/master/contributors/devel/sig-instrumentation/migration-to-structured-logging.md#name-arguments.
 logcheck: ./... matched no packages
